@@ -13,10 +13,11 @@ body {
 }
 
 h1.title {
-    font-size: 2rem;
-    margin-bottom: 20px;
     text-align: center;
-    color: #333;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #ffffff;
 }
 
 /* Estilo para los mensajes de éxito */
@@ -71,6 +72,25 @@ h1.title {
 .edit-btn {
     background-color: #ffa500;
     display: inline-block;
+}
+
+.btn-primary{
+    background-color: #4CAF50;
+    display: inline-block;
+}
+
+.btn-danger{
+    background-color: #e74c3c;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-info{
+    background-color: #42b3ff;
+    border: none;
+    color: white;
+    cursor: pointer;
 }
 
 .delete-btn {
@@ -139,7 +159,7 @@ label {
 }
 
 .submit-btn:hover {
-    background-color: #45a049;
+    background-color: #45a150;
 }
 
 .back-btn a {

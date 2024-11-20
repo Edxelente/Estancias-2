@@ -4,18 +4,39 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $productos = Producto::all();
-        return view('Producto.index', compact('productos')); // Cambiar 'productos' a 'Producto'
+        $query = Producto::query();
+
+        if ($request->has('buscar')) {
+            $query->where('nombre', 'like', '%' . $request->buscar . '%');
+        }
+
+        $productos = $query->paginate(10);
+        return view('producto.index', compact('productos')); 
     }
+
+    public function dashboard()
+    {
+        $totalProductos = Producto::count();
+        $bajoStock = Producto::where('stock', '<', 10)->count();
+        $ganancias = Producto::sum(DB::raw('precio - costo'));
+
+        return view('producto.dashboard', compact('totalProductos', 'bajoStock', 'ganancias')); 
+    }
+
+    public function show(Producto $producto)
+{
+    return view('producto.show', compact('producto'));
+}
 
     public function create()
     {
-        return view('Producto.create'); // Cambiar 'productos' a 'Producto'
+        return view('producto.create');
     }
 
     public function store(Request $request)
@@ -33,7 +54,7 @@ class ProductoController extends Controller
 
     public function edit(Producto $producto)
     {
-        return view('Producto.edit', compact('producto')); // Cambiar 'productos' a 'Producto'
+        return view('producto.edit', compact('producto')); // Cambiar 'Producto' a 'producto'
     }
 
     public function update(Request $request, Producto $producto)
