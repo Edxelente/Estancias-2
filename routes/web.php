@@ -9,3 +9,5 @@ Route::get('/', function () {
 });
 
 Route::resource('productos', ProductoController::class);
+Route::get('/dashboard', [ProductoController::class, 'dashboard'])->name('dashboard');
+
