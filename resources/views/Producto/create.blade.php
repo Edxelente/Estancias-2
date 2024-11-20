@@ -48,4 +48,16 @@
         <a href="{{ route('productos.index') }}" class="btn back-btn">Volver al Inventario</a>
     </div>
 </div>
+<script>
+    document.querySelector("form").addEventListener("submit", function(event) {
+        const nombre = document.querySelector("[name='nombre']").value;
+        const stock = document.querySelector("[name='stock']").value;
+
+        if (!nombre || !stock || stock < 0) {
+            alert("Por favor, completa todos los campos correctamente.");
+            event.preventDefault();
+        }
+    });
+</script>
+
 @endsection

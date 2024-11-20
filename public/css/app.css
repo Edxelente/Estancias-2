@@ -12,12 +12,52 @@ body {
     padding: 20px;
 }
 
+
 h1.title {
     font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
-    color: #333;
+    color: #ffffff;
+    background-color: #4CAF50;
+            padding: 10px 20px;
+            border-radius: 5px;
 }
+
+.btn-primary{
+    background-color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.btn-info{
+    background-color: #2a63ff;
+    margin-bottom: 10px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.stat {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+}
+
+.stat h2 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.stat p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 
 /* Estilo para los mensajes de éxito */
 .alert {
