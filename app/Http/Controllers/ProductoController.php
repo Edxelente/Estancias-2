@@ -17,7 +17,7 @@ class ProductoController extends Controller
         }
 
         $productos = $query->paginate(10);
-        return view('producto.index', compact('productos')); // Cambiar 'productos' a 'producto'
+        return view('producto.index', compact('productos'));
     }
 
     public function dashboard()

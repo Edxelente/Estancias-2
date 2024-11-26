@@ -1,75 +1,64 @@
+/* General */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.menu-container {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Logo */
+.logo img {
+  max-width: 200px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+/* Botones */
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-button {
+  display: block;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  background-color: #ffcc00;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  text-align: center;
+}
+
+.menu-button:hover {
+  background-color: #e6b800;
+}
+
+/* Opcional: Para dispositivos móviles */
+@media (max-width: 768px) {
+  .menu-container {
+      padding: 15px;
   }
-  
-  header {
-    background-color: #7c4d28;
-    color: #fff;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .menu-button {
+      font-size: 16px;
+      padding: 10px 15px;
   }
-  
-  header .logo h1 {
-    margin: 0;
-    font-size: 1.5rem;
-  }
-  
-  header .logo span {
-    color: #ffd700;
-  }
-  
-  nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 1rem;
-  }
-  
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .hero {
-    background-image: url('https://via.placeholder.com/1500x500'); /* Reemplaza con una imagen real */
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    text-align: center;
-    padding: 5rem 1rem;
-  }
-  
-  .hero-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-text .btn {
-    background-color: #ffd700;
-    color: #7c4d28;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-  }
-  
-  section {
-    padding: 2rem 1rem;
-    text-align: center;
-  }
-  
-  footer {
-    background-color: #7c4d28;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-  }
-  
+}
