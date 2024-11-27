@@ -17,7 +17,7 @@ class ProductoController extends Controller
         }
 
         $productos = $query->paginate(10);
-        return view('producto.index', compact('productos'));
+        return view('Producto.index', compact('productos')); // Aquí se usa 'Producto.index'
     }
 
     public function dashboard()
@@ -26,12 +26,12 @@ class ProductoController extends Controller
         $bajoStock = Producto::where('stock', '<', 10)->count();
         $ganancias = Producto::sum(DB::raw('precio - costo'));
 
-        return view('producto.dashboard', compact('totalProductos', 'bajoStock', 'ganancias')); // Cambiar 'productos' a 'producto'
+        return view('Producto.dashboard', compact('totalProductos', 'bajoStock', 'ganancias')); // Aquí se usa 'Producto.dashboard'
     }
 
     public function create()
     {
-        return view('producto.create'); // Cambiar 'Producto' a 'producto'
+        return view('Producto.create'); // Aquí se usa 'Producto.create'
     }
 
     public function store(Request $request)
@@ -49,7 +49,7 @@ class ProductoController extends Controller
 
     public function edit(Producto $producto)
     {
-        return view('producto.edit', compact('producto')); // Cambiar 'Producto' a 'producto'
+        return view('Producto.edit', compact('producto')); // Aquí se usa 'Producto.edit'
     }
 
     public function update(Request $request, Producto $producto)
@@ -71,3 +71,4 @@ class ProductoController extends Controller
         return redirect()->route('productos.index')->with('success', 'Producto eliminado exitosamente.');
     }
 }
+

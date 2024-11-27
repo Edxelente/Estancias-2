@@ -8,12 +8,14 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="{{ route('productos.index') }}">Inventario</a></li>
-                <li><a href="{{ route('productos.create') }}">Agregar Producto</a></li>
-            </ul>
-        </nav>
+        <!-- Enlace al inicio -->
+        <a href="{{ url('/') }}" class="home-link">Ir al Inicio</a>
+
+        <!-- Enlace para cerrar sesión -->
+        <a href="{{ route('logout') }}" 
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Cerrar sesión
+        </a>
     </header>
     
     <main>

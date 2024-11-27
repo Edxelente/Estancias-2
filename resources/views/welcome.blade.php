@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú Principal</title>
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="{{ asset('css/estilo.css') }}">
 </head>
 <body>
     <div class="menu-container">
         <!-- Logo -->
         <div class="logo">
-            <img src="logo.jpeg" alt="Logo de Tacos Bertha">
+            <img src="{{ asset('images/logo.png') }}"  alt="Logo de Tacos Bertha">
         </div>
 
         <!-- Botones -->
