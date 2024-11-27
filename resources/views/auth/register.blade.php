@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 </head>
 <body>
-    <div class="register-container">
+    <div class="login-container">
+        <!-- Contenedor del logo -->
+        <div class="logo-container">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo Bertha" class="logo">
+        </div>
+
+        <!-- Título del formulario -->
         <h1>Registro</h1>
+
+        <!-- Formulario de registro -->
         <form action="{{ route('register') }}" method="POST">
             @csrf
             <div class="form-group">
@@ -32,9 +40,10 @@
                 <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <button type="submit" class="btn">Registrarse</button>
         </form>
 
+        <!-- Enlace al login -->
         <p>¿Ya tienes una cuenta? <a href="{{ route('login') }}">Inicia sesión aquí</a></p>
     </div>
 </body>
