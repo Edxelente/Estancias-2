@@ -2,30 +2,36 @@
 
 @section('title', 'Inventario de Productos')
 
+@section('css')
+    <!-- Cargar archivo CSS específico para la vista de productos -->
+    <link href="{{ asset('css/Productos/producto.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
-<div class="container">
-    <h1 class="title">Inventario de Productos</h1>
+    <h1>Inventario de Productos</h1>
 
     <!-- Mensaje de éxito -->
     @if(session('success'))
-        <div class="alert success">
+        <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
 
+    <!-- Formulario de búsqueda -->
     <form method="GET" action="{{ route('productos.index') }}" class="mb-3">
         <div class="input-group">
             <input type="text" name="buscar" class="form-control" placeholder="Buscar producto..." value="{{ request('buscar') }}">
-            <button type="submit" class="btn btn-primary">Buscar</button>
+            <button type="submit" class="btn btn-info">Buscar</button>
         </div>
     </form>
 
-    <div class="actions">
-        <a href="{{ route('productos.create') }}" class="btn add-btn">Agregar Producto</a>
-        <a href="{{ route('dashboard') }}" class="btn btn-info">Ir al Dashboard</a> <!-- Botón al dashboard -->
+    <!-- Acciones -->
+    <div class="mb-3">
+        <a href="{{ route('productos.create') }}" class="btn btn-add">Agregar Producto</a>
     </div>
 
-    <table class="table">
+    <!-- Tabla de productos -->
+    <table>
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -40,23 +46,19 @@
             <tr>
                 <td>{{ $producto->nombre }}</td>
                 <td>{{ $producto->stock }}</td>
-                <td>{{ $producto->costo }}</td>
-                <td>{{ $producto->precio }}</td>
+                <!-- Formatear Costo y Precio con el símbolo de $ -->
+                <td>${{ number_format($producto->costo, 2) }}</td>
+                <td>${{ number_format($producto->precio, 2) }}</td>
                 <td>
-                    <a href="{{ route('productos.edit', $producto->id) }}" class="btn edit-btn">Editar</a>
+                    <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-warning">Editar</a>
                     <form action="{{ route('productos.destroy', $producto->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('¿Estás seguro de eliminar este producto?');">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn delete-btn">Eliminar</button>
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
                     </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-
-    <div class="d-flex justify-content-center">
-        {{ $productos->links() }}
-    </div>
-</div>
 @endsection

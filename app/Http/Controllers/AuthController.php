@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Roles; // Asegúrate de importar el modelo de Roles
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -26,7 +27,7 @@ class AuthController extends Controller
         // Intentar iniciar sesión con las credenciales proporcionadas
         if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']])) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard'); // Redirige al dashboard si la autenticación fue exitosa
+            return redirect()->intended('welcome'); // Redirige al dashboard si la autenticación fue exitosa
         }
 
         return back()->withErrors([
@@ -37,7 +38,10 @@ class AuthController extends Controller
     // Mostrar el formulario de registro
     public function showRegisterForm()
     {
-        return view('auth.register');
+        // Obtener todos los roles
+        $roles = Roles::all();
+        // Pasar los roles a la vista
+        return view('auth.register', compact('roles'));
     }
 
     // Procesar el registro
@@ -47,13 +51,17 @@ class AuthController extends Controller
         $request->validate([
             'username' => ['required', 'string', 'unique:users,username'], // Nombre de usuario único
             'password' => ['required', 'confirmed', 'min:8'], // Contraseña con confirmación y mínima de 8 caracteres
+            'roles' => 'required|exists:roles,id', // Validar que el rol exista en la tabla 'roles'
         ]);
 
         // Crear el nuevo usuario
-        User::create([
+        $user = User::create([
             'username' => $request->username,
             'password' => Hash::make($request->password), // Encriptar la contraseña antes de guardarla
         ]);
+
+        // Asignar el rol al usuario
+        $user->roles()->attach($request->roles);
 
         return redirect()->route('login')->with('success', 'Cuenta creada con éxito. Ahora puedes iniciar sesión.');
     }

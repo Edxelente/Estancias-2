@@ -2,6 +2,11 @@
 
 @section('title', 'Crear Producto')
 
+@section('css')
+    <!-- Cargar archivo CSS específico para la vista de productos -->
+    <link href="{{ asset('css/Productos/producto.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <div class="container">
     <h1 class="title">Crear Nuevo Producto</h1>
@@ -48,6 +53,7 @@
         <a href="{{ route('productos.index') }}" class="btn back-btn">Volver al Inventario</a>
     </div>
 </div>
+
 <script>
     document.querySelector("form").addEventListener("submit", function(event) {
         const nombre = document.querySelector("[name='nombre']").value;

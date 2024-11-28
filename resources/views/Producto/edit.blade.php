@@ -2,11 +2,14 @@
 
 @section('title', 'Editar Producto')
 
+@section('css')
+    <link href="{{ asset('css/Productos/producto.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <div class="container">
     <h1 class="title">Editar Producto</h1>
 
-    <!-- Si hay errores, se muestran aquí -->
     @if ($errors->any())
         <div class="alert error">
             <ul>
@@ -17,7 +20,6 @@
         </div>
     @endif
 
-    <!-- Formulario de edición -->
     <form action="{{ route('productos.update', $producto->id) }}" method="POST" class="form">
         @csrf
         @method('PUT')
@@ -60,5 +62,4 @@
         }
     });
 </script>
-
 @endsection

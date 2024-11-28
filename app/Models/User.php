@@ -11,14 +11,14 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
-     * Deshabilitar los timestamps automáticos
+     * Deshabilitar los timestamps automáticos.
      *
      * @var bool
      */
     public $timestamps = false;
 
     /**
-     * The attributes that are mass assignable.
+     * Los atributos que son asignables masivamente.
      *
      * @var array<int, string>
      */
@@ -28,7 +28,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Los atributos que deberían ser ocultados durante la serialización.
      *
      * @var array<int, string>
      */
@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * Los atributos que deberían ser convertidos.
      *
      * @return array<string, string>
      */
@@ -48,4 +48,12 @@ class User extends Authenticatable
             'password' => 'hashed', // Asegura que la contraseña sea cifrada
         ];
     }
+
+    /**
+     * Relación de un usuario con un rol (un usuario tiene un rol).
+     */
+    public function roles()
+{
+    return $this->belongsToMany(Roles::class);
+}
 }
