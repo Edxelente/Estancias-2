@@ -18,7 +18,6 @@
             <a href="{{ route('reportes.index') }}" class="menu-button">Reportes</a> <!-- Nueva opción -->
             <a href="{{ route('productos.index') }}" class="menu-button">Productos</a>
             <a href="{{ route('ventas.index') }}" class="menu-button">Ventas</a>
-            <a href="{{ route('inventario.index') }}" class="menu-button">Inventario</a> <!-- Nueva opción -->
             <a href="{{ route('dashboard') }}" class="menu-button">Ganancias</a>
         </div>
     </div>
