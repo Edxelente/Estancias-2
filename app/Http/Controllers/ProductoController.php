@@ -17,7 +17,7 @@ class ProductoController extends Controller
         }
 
         $productos = $query->paginate(10);
-        return view('Producto.index', compact('productos')); // Aquí se usa 'Producto.index'
+        return view('Producto.index', compact('productos'));
     }
 
     public function dashboard()
@@ -26,12 +26,12 @@ class ProductoController extends Controller
         $bajoStock = Producto::where('stock', '<', 10)->count();
         $ganancias = Producto::sum(DB::raw('precio - costo'));
 
-        return view('Producto.dashboard', compact('totalProductos', 'bajoStock', 'ganancias')); // Aquí se usa 'Producto.dashboard'
+        return view('Producto.dashboard', compact('totalProductos', 'bajoStock', 'ganancias'));
     }
 
     public function create()
     {
-        return view('Producto.create'); // Aquí se usa 'Producto.create'
+        return view('Producto.create');
     }
 
     public function store(Request $request)
@@ -49,7 +49,7 @@ class ProductoController extends Controller
 
     public function edit(Producto $producto)
     {
-        return view('Producto.edit', compact('producto')); // Aquí se usa 'Producto.edit'
+        return view('Producto.edit', compact('producto'));
     }
 
     public function update(Request $request, Producto $producto)
@@ -70,5 +70,17 @@ class ProductoController extends Controller
         $producto->delete();
         return redirect()->route('productos.index')->with('success', 'Producto eliminado exitosamente.');
     }
-}
 
+    public function inventario()
+    {
+        $productos = Producto::all();
+
+        // Métricas
+        $totalProductos = $productos->count();
+        $productosBajoStock = $productos->where('stock', '<', 10)->count();
+        $valorInventario = $productos->sum(fn($producto) => $producto->stock * $producto->costo);
+        $ingresosEsperados = $productos->sum(fn($producto) => $producto->stock * $producto->precio);
+
+        return view('Producto.inventario', compact('productos', 'totalProductos', 'productosBajoStock', 'valorInventario', 'ingresosEsperados'));
+    }
+}

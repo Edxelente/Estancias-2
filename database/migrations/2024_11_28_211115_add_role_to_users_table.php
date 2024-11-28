@@ -12,15 +12,17 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->timestamps(); // Agregar los campos 'created_at' y 'updated_at'
+            $table->unsignedBigInteger('role_id')->nullable();  
+            $table->foreign('role_id')->references('id')->on('roles');
         });
     }
-    
+
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropTimestamps(); // Eliminar los campos 'created_at' y 'updated_at'
+            $table->dropForeign(['role_id']);
+            $table->dropColumn('role_id');
         });
     }
-    
+
 };

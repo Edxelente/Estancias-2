@@ -18,10 +18,13 @@ return new class extends Migration
             $table->timestamps(); // Campos 'created_at' y 'updated_at'
         });
     }
-    
+        
     public function down()
     {
         Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropTimestamps(); // Eliminar los campos 'created_at' y 'updated_at'
+        });
     }
     
 };
