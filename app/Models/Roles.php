@@ -9,11 +9,17 @@ class Roles extends Model
 {
     use HasFactory;
 
+    // Especificamos qué campos son asignables
     protected $fillable = ['name'];
 
-    // Relación con el modelo de usuarios
+    // Relación con el modelo de usuario (un rol tiene muchos usuarios)
     public function users()
     {
-        return $this->belongsToMany(User::class, 'role_user', 'role_id', 'user_id');
+        return $this->hasMany(User::class);
     }
+
+    public function roles()
+{
+    return $this->belongsToMany(Roles::class, 'roles_user');
+}
 }
