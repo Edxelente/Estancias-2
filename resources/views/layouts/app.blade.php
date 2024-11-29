@@ -16,15 +16,19 @@
         <!-- Barra de navegación -->
         <header class="navbar">
             <div class="container">
-                <a class="brand" href="{{ url('/') }}">Café y Tacos Las Vías</a>
+                <a class="brand" href="{{ url('welcome') }}">Café y Tacos Las Vías</a>
                 <nav>
                 <ul class="nav">
                         <li><a href="{{ route('productos.index') }}">Productos</a></li>
                         <li><a href="{{ route('reportes.index') }}">Reportes</a></li> <!-- Nueva opción -->
-                        <li><a href="{{ route('usuarios.index') }}">Usuarios</a></li>
+                        <li><a href="{{ route('clientes.index') }}">Clientes</a> 
+                        <li><a href="{{ route('ventas.index') }}">Ventas</a> 
                         <li><a href="{{ route('configuracion') }}">Configuración</a></li>
-                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar sesión</a></li>
-                    </ul>
+                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar sesión</a>
+                        </li>  
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                 </nav>
             </div>
         </header>

@@ -9,7 +9,11 @@ class RoleSeeder extends Seeder
 {
     public function run()
     {
-        Roles::create(['name' => 'Admin']);
-        Roles::create(['name' => 'User']);
+        Roles::insert([
+            ['name' => 'Admin'],
+            ['name' => 'User'],
+            ['name' => 'Editor'],
+            ['name' => 'Viewer']
+        ]);
     }
 }

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Reportes')
 @section('content')
     <h1>Reportes</h1>
 
@@ -65,7 +65,7 @@
             <tr>
                 <th>ID Venta</th>
                 <th>Cliente</th>
-                <th>Monto ($)</th>
+                <th>Total ($)</th>
                 <th>Fecha</th>
             </tr>
         </thead>
@@ -74,7 +74,7 @@
                 <tr>
                     <td>{{ $venta->id }}</td>
                     <td>{{ $venta->cliente->nombre ?? 'N/A' }}</td>
-                    <td>{{ number_format($venta->monto, 2) }}</td>
+                    <td>{{ number_format($venta->total, 2) }}</td>
                     <td>{{ $venta->created_at->format('d/m/Y') }}</td>
                 </tr>
             @empty

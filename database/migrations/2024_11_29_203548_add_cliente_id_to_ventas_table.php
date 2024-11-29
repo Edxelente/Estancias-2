@@ -9,12 +9,15 @@ return new class extends Migration {
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('producto_id');
+            $table->unsignedBigInteger('producto_id'); // Relación con productos
+            $table->unsignedBigInteger('cliente_id'); // Relación con clientes
             $table->integer('cantidad'); 
-            $table->decimal('total', 10, 2);
+            $table->decimal('monto', 10, 2); // Monto total de la venta
             $table->timestamps();
             
+            // Claves foráneas
             $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
         });
     }
 

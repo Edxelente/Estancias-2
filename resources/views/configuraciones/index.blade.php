@@ -2,6 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
+@section('title', 'Configuración')
     <h1>Configuración</h1>
     
     <!-- Opciones de configuración -->

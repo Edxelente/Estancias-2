@@ -22,7 +22,7 @@ class ClienteController extends Controller
     {
         $request->validate([
             'nombre' => 'required|string|max:255',
-            'email' => 'required|email|unique:clientes,email',
+            'email' => 'nullable|email|unique:clientes,email',
             'telefono' => 'nullable|string|max:15',
         ]);
 

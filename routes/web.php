@@ -8,7 +8,6 @@ use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ConfiguracionController;
 use App\Http\Controllers\ClienteController;
-use App\Http\Controllers\InventarioController;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -46,9 +45,4 @@ Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes.ind
 Route::get('/reportes/inventario', [ReporteController::class, 'inventarioReporte'])->name('reportes.inventario');
 Route::get('/reportes/clientes', [ReporteController::class, 'clientesReporte'])->name('reportes.clientes');
 
-// Inventario
-Route::get('/inventario', [InventarioController::class, 'index'])->name('inventario.index');
-
-
-Route::resource('inventario', InventarioController::class);
 });

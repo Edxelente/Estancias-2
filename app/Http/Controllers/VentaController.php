@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Venta;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use App\Models\Cliente;
 
 class VentaController extends Controller
 {
@@ -17,13 +18,16 @@ class VentaController extends Controller
     public function create()
     {
         $productos = Producto::all(); // Listar todos los productos para seleccionar
-        return view('Venta.create', compact('productos'));
+        $clientes = Cliente::all();   // Listar todos los clientes para seleccionar
+    
+        return view('Venta.create', compact('productos', 'clientes'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'producto_id' => 'required|exists:productos,id',
+            'cliente_id' => 'required|exists:clientes,id',
             'cantidad' => 'required|integer|min:1',
         ]);
 
@@ -40,6 +44,7 @@ class VentaController extends Controller
         // Crear la venta
         Venta::create([
             'producto_id' => $producto->id,
+            'cliente_id' => $request->cliente_id,
             'cantidad' => $request->cantidad,
             'total' => $total,
         ]);

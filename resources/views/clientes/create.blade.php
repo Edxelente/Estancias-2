@@ -10,7 +10,7 @@
         </div>
         <div>
             <label for="email">Correo Electrónico:</label>
-            <input type="email" name="email" id="email" required>
+            <input type="email" name="email" id="email">
         </div>
         <div>
             <label for="telefono">Teléfono:</label>

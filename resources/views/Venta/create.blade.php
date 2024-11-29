@@ -18,19 +18,39 @@
 
     <form action="{{ route('ventas.store') }}" method="POST">
         @csrf
+
+        <!-- Selección de producto -->
         <div class="form-group">
             <label for="producto_id">Producto</label>
             <select name="producto_id" id="producto_id" class="form-control" required>
                 <option value="">Selecciona un producto</option>
                 @foreach($productos as $producto)
-                    <option value="{{ $producto->id }}">{{ $producto->nombre }} (Stock: {{ $producto->stock }})</option>
+                    <option value="{{ $producto->id }}">
+                        {{ $producto->nombre }} (Stock: {{ $producto->stock }})
+                    </option>
                 @endforeach
             </select>
         </div>
+
+        <!-- Selección de cliente -->
+        <div class="form-group">
+            <label for="cliente_id">Cliente</label>
+            <select name="cliente_id" id="cliente_id" class="form-control" required>
+                <option value="">Selecciona un cliente</option>
+                @foreach($clientes as $cliente)
+                    <option value="{{ $cliente->id }}">
+                        {{ $cliente->nombre }} ({{ $cliente->email ?? 'Sin email' }})
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <!-- Cantidad -->
         <div class="form-group">
             <label for="cantidad">Cantidad</label>
             <input type="number" name="cantidad" id="cantidad" class="form-control" min="1" required>
         </div>
+
         <button type="submit" class="btn btn-primary">Registrar Venta</button>
     </form>
 </div>

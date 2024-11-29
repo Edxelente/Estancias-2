@@ -12,11 +12,9 @@ class Venta extends Model
     // Campos asignables
     protected $fillable = [
         'producto_id',
+        'cliente_id',
         'cantidad',
         'total',
-        'cliente_id',
-        'monto',
-        'created_at',
     ];
 
     // Relación con el modelo Producto
@@ -28,6 +26,7 @@ class Venta extends Model
     // Relación con el modelo Cliente
     public function cliente()
     {
-        return $this->belongsTo(Cliente::class, 'cliente_id');
+        return $this->belongsTo(Cliente::class);
     }
 }
+

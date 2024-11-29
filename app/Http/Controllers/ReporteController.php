@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Venta;
-use App\Models\Producto; // Asegúrate de incluir el modelo Producto
+use App\Models\Producto; 
 use App\Models\Cliente;
 
 class ReporteController extends Controller
@@ -13,7 +13,7 @@ class ReporteController extends Controller
     public function clientesReporte()
     {
         $clientes = Cliente::with(['ventas' => function ($query) {
-            $query->select('cliente_id', 'monto'); // Selecciona los campos necesarios
+            $query->select('cliente_id', 'monto');
         }])->get();
 
         // Agregar cálculo del monto total gastado por cliente
@@ -24,8 +24,7 @@ class ReporteController extends Controller
         return view('reportes.clientes', compact('clientes'));
     }
 
-    // Página principal de reportes
-    public function index()
+        public function index()
     {
         $ventas = Venta::with('cliente')->get(); // Incluye información del cliente
         
@@ -38,8 +37,6 @@ class ReporteController extends Controller
         }
 
         $clientes = Cliente::all(); // Datos de clientes
-
-        // Cambié inventario por productos
         return view('reportes.index', compact('ventas', 'productos', 'clientes'));
     }
 }
