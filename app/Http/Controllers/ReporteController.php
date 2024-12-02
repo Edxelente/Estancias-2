@@ -9,7 +9,6 @@ use App\Models\Cliente;
 
 class ReporteController extends Controller
 {
-    // Reporte de clientes
     public function clientesReporte()
     {
         $clientes = Cliente::with(['ventas' => function ($query) {

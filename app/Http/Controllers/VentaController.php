@@ -9,9 +9,22 @@ use App\Models\Cliente;
 
 class VentaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $ventas = Venta::with('producto')->paginate(10); // Cargar ventas con productos relacionados
+        $ventas = Venta::with('producto', 'cliente'); // Relacionamos producto y cliente
+
+        // Búsqueda avanzada
+        if ($request->has('buscar')) {
+            $ventas = $ventas->whereHas('producto', function($query) use ($request) {
+                $query->where('nombre', 'like', '%' . $request->buscar . '%');
+            })
+            ->orWhereHas('cliente', function($query) use ($request) {
+                $query->where('nombre', 'like', '%' . $request->buscar . '%');
+            })
+            ->orWhere('created_at', 'like', '%' . $request->buscar . '%');
+        }
+
+        $ventas = $ventas->paginate(10);
         return view('Venta.index', compact('ventas'));
     }
 

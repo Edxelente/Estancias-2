@@ -7,9 +7,20 @@ use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $clientes = Cliente::all();
+        $clientes = Cliente::query();
+
+        // Búsqueda avanzada
+        if ($request->has('buscar')) {
+            $clientes->where(function($query) use ($request) {
+                $query->where('nombre', 'like', '%' . $request->buscar . '%')
+                      ->orWhere('email', 'like', '%' . $request->buscar . '%')
+                      ->orWhere('telefono', 'like', '%' . $request->buscar . '%');
+            });
+        }
+
+        $clientes = $clientes->paginate(10);
         return view('clientes.index', compact('clientes'));
     }
 

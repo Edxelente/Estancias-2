@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
+@section('title', 'Lista de Clientes')
+
+@section('css')
+<link href="{{ asset('css/Clientes/clientes.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
+<div class="clientes-container">
+<form method="GET" action="{{ route('clientes.index') }}" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="buscar" class="form-control" placeholder="Buscar cliente..." value="{{ request('buscar') }}">
+        <button type="submit" class="btn btn-info">Buscar</button>
+    </div>
+</form>
     <h1>Lista de Clientes</h1>
     <a href="{{ route('clientes.create') }}">Registrar Nuevo Cliente</a>
     <table>
@@ -20,10 +33,10 @@
                     <td>{{ $cliente->telefono }}</td>
                     <td>
                         <a href="{{ route('clientes.edit', $cliente) }}">Editar</a>
-                        <!-- Agregar opción para eliminar si es necesario -->
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+</div>
 @endsection

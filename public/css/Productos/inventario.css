@@ -1,0 +1,109 @@
+/* Contenedor principal para la página */
+.container-inventario {
+    width: 90%; /* Ancho del contenedor */
+    margin: 30px auto; /* Centramos el contenedor */
+    padding: 20px; /* Espaciado interno */
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Título principal */
+h1 {
+    font-size: 2rem; /* Tamaño del título */
+    color: #333; /* Texto oscuro */
+    text-align: center; /* Centramos el título */
+    margin-bottom: 30px; /* Separación inferior */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+/* Tarjetas de estadísticas */
+.card {
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    overflow: hidden; /* Ocultar contenido desbordado */
+}
+
+.card-header {
+    font-weight: bold; /* Negrita */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    padding: 10px; /* Espaciado interno */
+}
+
+.card-body {
+    text-align: center; /* Centrar texto */
+    padding: 20px; /* Espaciado interno */
+}
+
+.card-title {
+    font-size: 1.8rem; /* Tamaño del texto */
+    font-weight: bold; /* Negrita */
+    margin: 0; /* Sin margen */
+}
+
+/* Colores personalizados para las tarjetas */
+.bg-primary {
+    background-color: #2196F3; /* Azul */
+}
+
+.bg-danger {
+    background-color: #f44336; /* Rojo */
+}
+
+.bg-success {
+    background-color: #4CAF50; /* Verde */
+}
+
+.bg-info {
+    background-color: #00BCD4; /* Azul claro */
+}
+
+.text-white {
+    color: #ffffff; /* Texto blanco */
+}
+
+/* Tabla de productos */
+.table {
+    width: 100%; /* La tabla ocupa todo el ancho */
+    border-collapse: collapse; /* Sin espacio entre celdas */
+    margin-top: 30px; /* Separación superior */
+}
+
+.table-bordered {
+    border: 1px solid #ddd; /* Borde para toda la tabla */
+}
+
+th, td {
+    padding: 12px; /* Espaciado interno */
+    text-align: left; /* Alineación del texto */
+    border: 1px solid #ddd; /* Borde de las celdas */
+}
+
+th {
+    background-color: #4CAF50; /* Fondo verde */
+    color: white; /* Texto blanco */
+    font-weight: bold; /* Negrita */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Fondo claro para filas pares */
+}
+
+tr:hover {
+    background-color: #f1f1f1; /* Fondo gris claro al pasar el cursor */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Ajustar ancho */
+    }
+
+    .table {
+        font-size: 0.9rem; /* Texto más pequeño */
+    }
+
+    .card-title {
+        font-size: 1.5rem; /* Reducir tamaño del texto */
+    }
+}

@@ -3,10 +3,11 @@
 @section('title', 'Panel de Estadísticas')
 
 @section('css')
-    <link href="{{ asset('css/Productos/producto.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/Productos/estadisticas.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
+<div class="dashboard-container">
 <div class="container">
     <h1 class="title">Panel de Estadísticas</h1>
     <div class="row">
@@ -35,5 +36,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

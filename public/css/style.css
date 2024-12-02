@@ -88,10 +88,6 @@ html, body {
     transition: background-color 0.3s ease;
 }
 
-.btn:hover {
-    background-color: #555;
-}
-
 .btn-success {
     background-color: #28a745;
     color: white;

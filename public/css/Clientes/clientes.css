@@ -1,0 +1,148 @@
+/* Contenedor principal para las vistas de clientes */
+.clientes-container {
+    width: 80%; /* Anchura del contenedor, ocupa el 80% de la página */
+    margin: auto; /* Centra el contenedor */
+    padding: 20px; /* Espaciado interno */
+    background: #f9f9f9; /* Color de fondo claro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+}
+/* Estilo para el formulario de búsqueda */
+form.mb-3 {
+    display: flex; /* Utilizamos flexbox para alinear los elementos en una fila */
+    justify-content: space-between; /* Espaciado entre los elementos del formulario */
+    margin-bottom: 20px; /* Espaciado debajo del formulario */
+}
+
+input.form-control {
+    width: auto; /* El campo de texto ocupa el 80% del ancho disponible */
+    padding: 10px;
+    font-size: 1rem; /* Tamaño de texto adecuado */
+    border-radius: 5px; /* Bordes redondeados para el input */
+    border: 1px solid #ccc; /* Borde de color gris claro */
+}
+
+button.btn-info {
+    background-color: #2196F3; /* Azul para el botón de búsqueda */
+    color: white; /* Texto en color blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado dentro del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave en el color de fondo */
+}
+
+button.btn-info:hover {
+    background-color: #1976D2; /* Azul más oscuro cuando el cursor pasa por encima */
+}
+
+/* Estilo del título principal */
+.clientes-container h1 {
+    font-size: 2rem; /* Tamaño de fuente grande */
+    color: #333; /* Color gris oscuro */
+    text-align: center; /* Texto centrado */
+    margin-bottom: 20px; /* Separación debajo del título */
+}
+
+/* Estilo para cada campo del formulario */
+.clientes-container form div {
+    margin-bottom: 15px; /* Separación entre campos */
+}
+
+/* Etiquetas de los campos del formulario */
+.clientes-container form label {
+    display: block; /* Forzar que cada etiqueta ocupe una línea */
+    font-weight: bold; /* Texto en negrita */
+    margin-bottom: 5px; /* Separación debajo de la etiqueta */
+    color: #555; /* Color gris medio */
+}
+
+/* Campos de texto del formulario */
+.clientes-container form input {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 10px; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño estándar de la fuente */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo claro */
+}
+
+/* Estilo cuando el campo de texto está enfocado */
+.clientes-container form input:focus {
+    outline: none; /* Elimina el borde azul por defecto */
+    border-color: #4CAF50; /* Borde verde cuando está enfocado */
+}
+
+/* Botón de guardar en el formulario */
+.clientes-container form button {
+    background-color: #4CAF50; /* Fondo verde */
+    color: white; /* Texto blanco */
+    border: none; /* Sin bordes */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Icono de puntero al pasar el ratón */
+    transition: background-color 0.3s ease; /* Animación de cambio de color */
+}
+
+/* Cambiar color del botón al pasar el ratón */
+.clientes-container form button:hover {
+    background-color: #45a049; /* Verde más oscuro */
+}
+
+/* Tabla para listar clientes */
+.clientes-container table {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    border-collapse: collapse; /* Elimina los espacios entre bordes */
+    margin-top: 20px; /* Separación superior */
+}
+
+/* Celdas y cabeceras de la tabla */
+.clientes-container table th, .clientes-container table td {
+    padding: 12px; /* Espaciado interno */
+    text-align: left; /* Alineación a la izquierda */
+    border: 1px solid #ccc; /* Bordes grises */
+}
+
+/* Estilo de las cabeceras de la tabla */
+.clientes-container table th {
+    background-color: #e1e1e1; /* Fondo verde */
+    color: rgb(0, 0, 0); /* Texto blanco */
+}
+
+/* Fondo alterno para las filas pares */
+.clientes-container table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Fondo claro */
+}
+
+/* Fondo al pasar el ratón sobre una fila */
+.clientes-container table tr:hover {
+    background-color: #f1f1f1; /* Fondo más claro */
+}
+
+/* Enlaces dentro de la tabla */
+.clientes-container table a {
+    color: #2196F3; /* Azul estándar */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Negrita */
+}
+
+/* Cambiar estilo de los enlaces al pasar el ratón */
+.clientes-container table a:hover {
+    text-decoration: underline; /* Subrayado */
+}
+
+/* Botón para registrar un nuevo cliente */
+.clientes-container a[href*="create"] {
+    display: inline-block; /* Botón en línea */
+    background-color: #2196F3; /* Fondo azul */
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Separación inferior */
+}
+
+/* Cambiar color del botón al pasar el ratón */
+.clientes-container a[href*="create"]:hover {
+    background-color: #1976D2; /* Azul más oscuro */
+}

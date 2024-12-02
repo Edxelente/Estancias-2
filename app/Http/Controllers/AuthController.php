@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\Roles; // Asegúrate de importar el modelo de Roles
+use App\Models\Roles;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -27,7 +27,7 @@ class AuthController extends Controller
         // Intentar iniciar sesión con las credenciales proporcionadas
         if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']])) {
             $request->session()->regenerate();
-            return redirect()->intended('welcome'); // Redirige al dashboard si la autenticación fue exitosa
+            return redirect()->intended('welcome'); // Redirige al menu si la autenticación fue exitosa
         }
 
         return back()->withErrors([

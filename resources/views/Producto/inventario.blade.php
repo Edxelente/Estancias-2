@@ -3,11 +3,11 @@
 @section('title', 'Inventario de Productos')
 
 @section('css')
-    <link href="{{ asset('css/Productos/producto.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/Productos/inventario.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container-inventario">
     <h1>Inventario de Productos</h1>
 
     <div class="row mb-4">

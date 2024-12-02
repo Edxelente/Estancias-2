@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
 @section('title', 'Registrar Venta')
-
+@section('css')
+    <link href="{{ asset('css/Ventas/crear.css') }}" rel="stylesheet">
+@endsection
 @section('content')
-<div class="container">
+<div class="container-crear">
     <h1>Registrar Venta</h1>
 
     @if($errors->any())
@@ -39,7 +41,7 @@
                 <option value="">Selecciona un cliente</option>
                 @foreach($clientes as $cliente)
                     <option value="{{ $cliente->id }}">
-                        {{ $cliente->nombre }} ({{ $cliente->email ?? 'Sin email' }})
+                        {{ $cliente->nombre }} ({{ $cliente->telefono ?? 'Sin telefono' }})
                     </option>
                 @endforeach
             </select>

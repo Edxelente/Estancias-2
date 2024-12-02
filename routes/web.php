@@ -5,7 +5,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\ReporteController;
-use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ConfiguracionController;
 use App\Http\Controllers\ClienteController;
 
@@ -30,7 +29,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
 // Rutas para los controladores recién creados
 Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes.index');
-Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
 Route::get('/configuracion', [ConfiguracionController::class, 'index'])->name('configuracion');
 
 Route::resource('roles', ConfiguracionController::class);

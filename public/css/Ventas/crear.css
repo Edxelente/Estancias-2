@@ -1,0 +1,86 @@
+/* Estilo general para la vista de Registrar Venta */
+.container-crear {
+    width: 90%; /* Ancho del contenedor */
+    margin: 30px auto; /* Centrado del contenedor */
+    padding: 20px; /* Espaciado interno */
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Título principal */
+h1 {
+    font-size: 2.5rem; /* Tamaño del título */
+    color: #333; /* Color oscuro */
+    text-align: center; /* Centramos el título */
+    margin-bottom: 30px; /* Separación inferior */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+/* Estilo de las alertas */
+.alert.alert-danger {
+    background-color: #f44336; /* Fondo rojo */
+    color: white; /* Texto blanco */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Separación inferior */
+}
+
+/* Estilo de los formularios */
+form .form-group {
+    margin-bottom: 20px; /* Separación entre los campos */
+}
+
+form label {
+    font-weight: bold; /* Texto en negrita para las etiquetas */
+    margin-bottom: 5px; /* Separación inferior */
+    color: #333; /* Color del texto */
+}
+
+form .form-control {
+    width: 100%; /* El input ocupa todo el ancho disponible */
+    padding: 12px; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño del texto */
+    border: 1px solid #ddd; /* Borde claro */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo claro */
+}
+
+form .form-control:focus {
+    outline: none; /* Eliminamos el contorno */
+    border-color: #4CAF50; /* Borde verde en foco */
+    background-color: #ffffff; /* Fondo blanco en foco */
+}
+
+/* Estilo del botón */
+button.btn-primary {
+    background-color: #4CAF50; /* Verde para el botón */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 12px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de clic */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+}
+
+button.btn-primary:hover {
+    background-color: #45a049; /* Verde más oscuro al hacer hover */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+/* Estilo para los selectores (producto y cliente) */
+select.form-control {
+    width: 100%; /* El select ocupa todo el ancho */
+    padding: 12px; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño del texto */
+    border: 1px solid #ddd; /* Borde claro */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo claro */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .container-crear {
+        width: 95%; /* Ancho reducido en pantallas pequeñas */
+    }
+}

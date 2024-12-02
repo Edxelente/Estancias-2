@@ -19,7 +19,7 @@
         </div>
         <div style="border: 1px solid #ccc; padding: 20px;">
             <h3>Total de Ventas</h3>
-            <p><strong>${{ number_format($ventas->sum('monto'), 2) }}</strong></p>
+            <p><strong>${{ number_format($ventas->sum('total'), 2) }}</strong></p>
         </div>
     </div>
 

@@ -1,0 +1,141 @@
+/* Contenedor principal para la vista de ventas */
+.container-venta {
+    width: 90%; /* Ancho del contenedor */
+    margin: 30px auto; /* Centramos el contenedor */
+    padding: 20px; /* Espaciado interno */
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+/* Estilo para el formulario de búsqueda */
+form.mb-3 {
+    display: flex; /* Utilizamos flexbox para alinear los elementos en una fila */
+    justify-content: space-between; /* Espaciado entre los elementos del formulario */
+    margin-bottom: 20px; /* Espaciado debajo del formulario */
+}
+
+input.form-control {
+    width: auto; /* El campo de texto ocupa el 80% del ancho disponible */
+    padding: 10px;
+    font-size: 1rem; /* Tamaño de texto adecuado */
+    border-radius: 5px; /* Bordes redondeados para el input */
+    border: 1px solid #ccc; /* Borde de color gris claro */
+}
+
+button.btn-info {
+    background-color: #2196F3; /* Azul para el botón de búsqueda */
+    color: white; /* Texto en color blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado dentro del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave en el color de fondo */
+}
+
+button.btn-info:hover {
+    background-color: #1976D2; /* Azul más oscuro cuando el cursor pasa por encima */
+}
+
+/* Título principal */
+h1 {
+    font-size: 2.5rem; /* Tamaño del título */
+    color: #333; /* Texto oscuro */
+    text-align: center; /* Centramos el título */
+    margin-bottom: 30px; /* Separación inferior */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+/* Botón de registrar venta */
+a.btn-primary {
+    display: inline-block; /* Botón en línea */
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Separación inferior */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efectos de transición */
+}
+
+a.btn-primary:hover {
+    background-color: #45a049; /* Verde más oscuro al hacer hover */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+/* Tabla de ventas */
+.table {
+    width: 100%; /* La tabla ocupa todo el ancho disponible */
+    border-collapse: collapse; /* Sin espacio entre celdas */
+    margin-top: 20px; /* Separación superior */
+}
+
+th, td {
+    padding: 12px; /* Espaciado interno de las celdas */
+    text-align: left; /* Alineación del texto */
+    border: 1px solid #ddd; /* Borde claro */
+}
+
+th {
+    background-color: #2196F3; /* Fondo azul */
+    color: white; /* Texto blanco */
+    font-weight: bold; /* Negrita en los encabezados */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Fondo claro para filas pares */
+}
+
+tr:hover {
+    background-color: #f1f1f1; /* Fondo gris claro al pasar el cursor */
+}
+
+/* Estilo para las alertas */
+.alert.alert-success {
+    background-color: #4CAF50; /* Fondo verde */
+    color: white; /* Texto blanco */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Separación inferior */
+}
+
+/* Paginación */
+ul.pagination {
+    display: flex; /* Elementos en línea */
+    justify-content: center; /* Centramos la paginación */
+    list-style-type: none; /* Eliminamos el estilo de lista */
+    padding: 0;
+    margin: 20px 0; /* Espaciado superior e inferior */
+}
+
+ul.pagination li {
+    margin: 0 5px; /* Separación lateral entre elementos */
+}
+
+ul.pagination li a {
+    text-decoration: none; /* Sin subrayado */
+    color: #2196F3; /* Azul */
+    padding: 8px 12px; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde claro */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+}
+
+ul.pagination li a:hover {
+    background-color: #2196F3; /* Fondo azul al pasar el cursor */
+    color: white; /* Texto blanco */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .container-venta {
+        width: 95%; /* Ajustar ancho en pantallas pequeñas */
+    }
+
+    .table {
+        font-size: 0.9rem; /* Reducir tamaño de texto en la tabla */
+    }
+
+    h1 {
+        font-size: 2rem; /* Reducir el tamaño del título */
+    }
+}

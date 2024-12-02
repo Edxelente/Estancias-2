@@ -1,0 +1,113 @@
+/* Contenedor principal para la página de creación */
+.container-crear {
+    width: 80%; /* Ancho del contenedor */
+    margin: 30px auto; /* Centramos el contenedor */
+    padding: 20px; /* Espaciado interno */
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Título principal */
+h1.title {
+    font-size: 2rem; /* Tamaño del título */
+    color: #333333; /* Color oscuro para el texto */
+    text-align: center; /* Centramos el título */
+    margin-bottom: 20px; /* Separación inferior */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+/* Formulario */
+.form-group {
+    margin-bottom: 15px; /* Separación entre los grupos */
+}
+
+label {
+    display: block; /* Etiqueta en bloque */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 5px; /* Separación con el campo */
+    color: #333; /* Color oscuro para el texto */
+}
+
+input.form-control {
+    width: 100%; /* Campo ocupa todo el ancho */
+    padding: 10px; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde gris claro */
+    background-color: #f9f9f9; /* Fondo claro */
+}
+
+input.form-control:focus {
+    outline: none; /* Sin contorno adicional */
+    border-color: #4CAF50; /* Borde verde al enfocar */
+    background-color: #ffffff; /* Fondo blanco */
+}
+
+/* Botón de enviar */
+.btn.submit-btn {
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de clic */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+}
+
+.btn.submit-btn:hover {
+    background-color: #45a049; /* Verde más oscuro */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+/* Botón de regresar */
+.back-btn a {
+    display: inline-block; /* Botón en línea */
+    background-color: #ff9800; /* Naranja */
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-top: 20px; /* Separación superior */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
+}
+
+.back-btn a:hover {
+    background-color: #e68900; /* Naranja más oscuro */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+/* Alertas de error */
+.alert.error {
+    padding: 15px; /* Espaciado interno */
+    background-color: #f44336; /* Fondo rojo */
+    color: white; /* Texto blanco */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Separación inferior */
+}
+
+.alert.error ul {
+    list-style: none; /* Sin viñetas */
+    padding: 0; /* Sin espaciado interno */
+}
+
+.alert.error li {
+    margin-bottom: 5px; /* Espaciado entre líneas */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .container-crear {
+        width: 95%; /* Ancho reducido en pantallas pequeñas */
+    }
+
+    input.form-control {
+        font-size: 0.9rem; /* Texto más pequeño */
+        padding: 8px; /* Espaciado interno más compacto */
+    }
+
+    .btn.submit-btn, .back-btn a {
+        padding: 8px 15px; /* Botones más compactos */
+    }
+}
