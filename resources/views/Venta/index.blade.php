@@ -1,9 +1,17 @@
 @extends('layouts.app')
 
 @section('title', 'Listado de Ventas')
-
+@section('css')
+    <link href="{{ asset('css/Ventas/index.css') }}" rel="stylesheet">
+@endsection
 @section('content')
-<div class="container">
+<div class="container-venta">
+<form method="GET" action="{{ route('ventas.index') }}" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="buscar" class="form-control" placeholder="Buscar venta..." value="{{ request('buscar') }}">
+        <button type="submit" class="btn btn-info">Buscar</button>
+    </div>
+</form>
     <h1>Listado de Ventas</h1>
 
     @if(session('success'))

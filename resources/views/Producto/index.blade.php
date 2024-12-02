@@ -4,10 +4,11 @@
 
 @section('css')
     <!-- Cargar archivo CSS específico para la vista de productos -->
-    <link href="{{ asset('css/Productos/producto.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/Productos/index.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
+<div class="index-container">
     <h1>Inventario de Productos</h1>
 
     <!-- Mensaje de éxito -->
@@ -61,4 +62,5 @@
             @endforeach
         </tbody>
     </table>
+</div>
 @endsection

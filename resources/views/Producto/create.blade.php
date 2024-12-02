@@ -4,11 +4,11 @@
 
 @section('css')
     <!-- Cargar archivo CSS específico para la vista de productos -->
-    <link href="{{ asset('css/Productos/producto.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/Productos/crear.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container-crear">
     <h1 class="title">Crear Nuevo Producto</h1>
 
     <!-- Si hay errores, se muestran aquí -->

@@ -1,0 +1,102 @@
+/* Estilo general para el dashboard (solo aplica a esta vista específica) */
+.dashboard-container {
+    max-width: 90%; /* Limitar el ancho del contenedor */
+    margin: 20px auto; /* Centramos el contenido */
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Título del dashboard */
+.dashboard-container .title {
+    font-size: 2.5rem;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* Estilo para las tarjetas dentro del dashboard */
+.dashboard-container .card {
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    color: #ffffff; /* Texto blanco por defecto */
+    overflow: hidden; /* Asegura que el contenido no se desborde fuera del borde redondeado */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Efecto suave */
+}
+
+/* Colores de fondo para las tarjetas dentro del dashboard */
+.dashboard-container .card.bg-primary {
+    background-color: #2196F3; /* Azul */
+}
+
+.dashboard-container .card.bg-danger {
+    background-color: #f44336; /* Rojo */
+}
+
+.dashboard-container .card.bg-success {
+    background-color: #4CAF50; /* Verde */
+}
+
+/* Estilo del contenido dentro de las tarjetas */
+.dashboard-container .card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.dashboard-container .card-body h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.dashboard-container .card-body p {
+    font-size: 1.25rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Efecto hover en las tarjetas */
+.dashboard-container .card:hover {
+    transform: translateY(-5px); /* Eleva la tarjeta */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más prominente */
+}
+
+/* Estilo de las tablas dentro del dashboard */
+.dashboard-container table {
+    width: 100%; /* Tabla toma todo el ancho */
+    border-collapse: collapse; /* Sin espacio entre celdas */
+    margin-top: 20px; /* Separación superior */
+}
+
+.dashboard-container th, td {
+    padding: 12px; /* Espaciado interno */
+    text-align: left; /* Texto alineado a la izquierda */
+    border: 1px solid #ddd; /* Borde de las celdas */
+}
+
+.dashboard-container th {
+    background-color: #4CAF50; /* Fondo verde */
+    color: white; /* Texto blanco */
+    font-weight: bold; /* Texto en negrita */
+}
+
+.dashboard-container tr:nth-child(even) {
+    background-color: #f9f9f9; /* Fondo para filas pares */
+}
+
+.dashboard-container tr:hover {
+    background-color: #f1f1f1; /* Fondo al pasar el cursor */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 10px; /* Menos espaciado en pantallas pequeñas */
+    }
+    .dashboard-container .card-body h4, .dashboard-container .card-body p {
+        font-size: 1rem; /* Reducción de tamaño de texto */
+    }
+}

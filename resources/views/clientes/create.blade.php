@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
+@section('title', 'Registrar Cliente')
+
+@section('css')
+<link href="{{ asset('css/Clientes/clientes.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
+<div class="clientes-container">
     <h1>Registrar Cliente</h1>
     <form action="{{ route('clientes.store') }}" method="POST">
         @csrf
@@ -18,4 +25,5 @@
         </div>
         <button type="submit">Guardar</button>
     </form>
+</div>
 @endsection

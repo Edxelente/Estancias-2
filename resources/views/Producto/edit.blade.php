@@ -3,11 +3,11 @@
 @section('title', 'Editar Producto')
 
 @section('css')
-    <link href="{{ asset('css/Productos/producto.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/Productos/edit.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container-edit">
     <h1 class="title">Editar Producto</h1>
 
     @if ($errors->any())

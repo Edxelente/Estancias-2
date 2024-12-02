@@ -1,0 +1,144 @@
+/* Estilo general de la página */
+body {
+    font-family: 'Arial', sans-serif; /* Fuente principal para el texto */
+    background-color: #f9f9f9; /* Fondo claro para toda la página */
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal para la vista de inventario */
+.index.container {
+    width: 85%; /* El contenedor ocupa el 85% del ancho de la pantalla */
+    margin: 30px auto; /* Centramos el contenedor y agregamos un margen superior */
+    padding: 20px; /* Espaciado interno dentro del contenedor */
+    background-color: #ffffff; /* Fondo blanco para el área de contenido */
+    border-radius: 10px; /* Bordes redondeados para suavizar el contorno */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del contenedor */
+}
+
+/* Título principal */
+h1.title {
+    font-size: 2.5rem; /* Tamaño grande para el título */
+    color: #333; /* Color oscuro para el título */
+    text-align: center; /* Centramos el título */
+    margin-bottom: 30px; /* Espaciado debajo del título */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+/* Estilo para el formulario de búsqueda */
+form.mb-3 {
+    display: flex; /* Utilizamos flexbox para alinear los elementos en una fila */
+    justify-content: space-between; /* Espaciado entre los elementos del formulario */
+    margin-bottom: 20px; /* Espaciado debajo del formulario */
+}
+
+input.form-control {
+    width: 80%; /* El campo de texto ocupa el 80% del ancho disponible */
+    padding: 10px;
+    font-size: 1rem; /* Tamaño de texto adecuado */
+    border-radius: 5px; /* Bordes redondeados para el input */
+    border: 1px solid #ccc; /* Borde de color gris claro */
+}
+
+button.btn-info {
+    background-color: #2196F3; /* Azul para el botón de búsqueda */
+    color: white; /* Texto en color blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado dentro del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave en el color de fondo */
+}
+
+button.btn-info:hover {
+    background-color: #1976D2; /* Azul más oscuro cuando el cursor pasa por encima */
+}
+
+/* Botón de agregar producto */
+a.btn-add {
+    display: inline-block; /* El botón se muestra en línea */
+    background-color: #4CAF50; /* Verde para el botón */
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    padding: 10px 20px; /* Espaciado dentro del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Separación inferior */
+}
+
+a.btn-add:hover {
+    background-color: #45a049; /* Verde más oscuro al pasar el cursor */
+}
+
+/* Estilo para la tabla de productos */
+table {
+    width: 100%; /* La tabla ocupa todo el ancho disponible */
+    border-collapse: collapse; /* Sin espacio entre celdas */
+    margin-top: 20px; /* Separación superior */
+}
+
+th, td {
+    padding: 12px; /* Espaciado interno de las celdas */
+    text-align: left; /* Alineación a la izquierda */
+    border: 1px solid #ddd; /* Borde gris claro */
+}
+
+th {
+    background-color: #4CAF50; /* Fondo verde para los encabezados */
+    color: white; /* Texto blanco */
+    font-weight: bold; /* Texto en negrita para los encabezados */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Fondo gris claro para las filas pares */
+}
+
+tr:hover {
+    background-color: #f1f1f1; /* Fondo gris claro cuando pasas el cursor sobre una fila */
+}
+
+/* Estilo para los botones en la tabla */
+table a, table button {
+    display: inline-block;
+    padding: 6px 12px; /* Espaciado interno en los botones */
+    border-radius: 5px; /* Bordes redondeados en los botones */
+    text-decoration: none; /* Sin subrayado */
+}
+
+table a.btn-warning {
+    background-color: #ff9800; /* Naranja para el botón de editar */
+    color: white; /* Texto blanco */
+    margin-right: 10px; /* Separación entre botones */
+}
+
+table a.btn-warning:hover {
+    background-color: #e68900; /* Naranja más oscuro al pasar el cursor */
+}
+
+table button.btn-danger {
+    background-color: #f44336; /* Rojo para el botón de eliminar */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+}
+
+table button.btn-danger:hover {
+    background-color: #d32f2f; /* Rojo más oscuro al pasar el cursor */
+}
+
+/* Mensajes de éxito */
+.alert.alert-success {
+    background-color: #4CAF50; /* Fondo verde */
+    color: white; /* Texto blanco */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Separación inferior */
+}
+
+/* Responsividad para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Ancho más pequeño en pantallas pequeñas */
+    }
+    table {
+        font-size: 0.9rem; /* Reducir el tamaño de la fuente en tablas */
+    }
+}
