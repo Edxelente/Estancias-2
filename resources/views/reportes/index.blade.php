@@ -1,6 +1,16 @@
 @extends('layouts.app')
 @section('title', 'Reportes')
+@section('css')
+    <link href="{{ asset('css/Reporte/index.css') }}" rel="stylesheet">
+@endsection
 @section('content')
+<div style="margin-bottom: 20px;">
+    <a href="{{ route('reportes.reabastecimiento') }}" class="btn btn-primary" style="margin-right: 10px;">Ir a Reabastecimiento</a>
+    <a href="{{ route('reportes.productosMasVendidos') }}" class="btn btn-primary">Productos Más Vendidos</a>
+    <a href="{{ route('reportes.rentabilidad') }}" class="btn btn-primary">Análisis de Rentabilidad</a>
+    <a href="{{ route('reportes.comparacionVentas') }}" class="btn btn-primary">Comparación de Ventas</a>
+    <a href="{{ route('reportes.clientesGastado') }}" class="btn btn-primary">Total Gastado por Cliente</a>
+</div>
     <h1>Reportes</h1>
 
     <!-- Métricas principales -->
@@ -22,10 +32,10 @@
             <p><strong>${{ number_format($ventas->sum('total'), 2) }}</strong></p>
         </div>
     </div>
-
+ 
     <!-- Tabla de productos -->
     <h2>Inventario</h2>
-    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; margin-bottom: 20px;">
+    <table class="table">
         <thead>
             <tr>
                 <th>Producto</th>
@@ -40,13 +50,13 @@
                 <tr>
                     <td>{{ $producto->nombre }}</td>
                     <td>{{ $producto->stock }}</td>
-                    <td>{{ number_format($producto->costo, 2) }}</td>
-                    <td>{{ number_format($producto->precio, 2) }}</td>
+                    <td>${{ number_format($producto->costo, 2) }}</td>
+                    <td>${{ number_format($producto->precio, 2) }}</td>
                     <td>
                         @if ($producto->stock < 10)
-                            <span style="color: red;">Bajo stock</span>
+                            <span class="bajo-stock">Bajo stock</span>
                         @else
-                            <span style="color: green;">Suficiente</span>
+                            <span class="suficiente-stock">Suficiente</span>
                         @endif
                     </td>
                 </tr>
@@ -60,7 +70,7 @@
 
     <!-- Tabla de ventas -->
     <h2>Ventas</h2>
-    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; margin-bottom: 20px;">
+    <table class="table">
         <thead>
             <tr>
                 <th>ID Venta</th>
@@ -74,7 +84,7 @@
                 <tr>
                     <td>{{ $venta->id }}</td>
                     <td>{{ $venta->cliente->nombre ?? 'N/A' }}</td>
-                    <td>{{ number_format($venta->total, 2) }}</td>
+                    <td>${{ number_format($venta->total, 2) }}</td>
                     <td>{{ $venta->created_at->format('d/m/Y') }}</td>
                 </tr>
             @empty
@@ -87,7 +97,7 @@
 
     <!-- Tabla de clientes -->
     <h2>Clientes</h2>
-    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%;">
+    <table class="table">
         <thead>
             <tr>
                 <th>ID Cliente</th>
@@ -106,7 +116,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="4">No hay clientes registrados.</td>
+                    <td colspan="5">No hay clientes registrados.</td>
                 </tr>
             @endforelse
         </tbody>

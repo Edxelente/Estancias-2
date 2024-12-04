@@ -80,7 +80,7 @@ th, td {
 }
 
 th {
-    background-color: #4CAF50; /* Fondo verde */
+    background-color: #333; /* Fondo */
     color: white; /* Texto blanco */
     font-weight: bold; /* Negrita */
 }

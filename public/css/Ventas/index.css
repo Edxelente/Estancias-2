@@ -42,7 +42,6 @@ h1 {
     color: #333; /* Texto oscuro */
     text-align: center; /* Centramos el título */
     margin-bottom: 30px; /* Separación inferior */
-    text-transform: uppercase; /* Texto en mayúsculas */
 }
 
 /* Botón de registrar venta */
@@ -76,7 +75,7 @@ th, td {
 }
 
 th {
-    background-color: #2196F3; /* Fondo azul */
+    background-color: #333; /* Fondo*/
     color: white; /* Texto blanco */
     font-weight: bold; /* Negrita en los encabezados */
 }

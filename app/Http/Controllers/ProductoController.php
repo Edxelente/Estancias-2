@@ -22,12 +22,20 @@ class ProductoController extends Controller
 
     public function dashboard()
     {
-        $totalProductos = Producto::count();
-        $bajoStock = Producto::where('stock', '<', 10)->count();
-        $ganancias = Producto::sum(DB::raw('precio - costo'));
-
+        $productos = Producto::all();
+    
+        $ganancias = $productos->sum(function ($producto) {
+            $costoUnitario = $producto->stock > 0 ? $producto->costo / $producto->stock : 0; // Evitar división por cero
+            $gananciaPorUnidad = $producto->precio - $costoUnitario;
+            return $gananciaPorUnidad * $producto->stock; // Ganancia total del producto
+        });
+    
+        $totalProductos = $productos->count();
+        $bajoStock = $productos->where('stock', '<', 10)->count();
+    
         return view('Producto.dashboard', compact('totalProductos', 'bajoStock', 'ganancias'));
     }
+    
 
     public function create()
     {

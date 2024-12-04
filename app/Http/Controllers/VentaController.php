@@ -25,7 +25,11 @@ class VentaController extends Controller
         }
 
         $ventas = $ventas->paginate(10);
-        return view('Venta.index', compact('ventas'));
+
+        // Obtener el total gastado por cada cliente
+        $clientes = Cliente::withSum('ventas', 'total')->get(); // Suma de las ventas por cada cliente
+
+        return view('Venta.index', compact('ventas', 'clientes'));
     }
 
     public function create()

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Café y Tacos')</title>
 
-    <!-- Estilos básicos -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     @yield('css') <!-- Espacio para incluir estilos específicos de cada página -->
@@ -20,9 +19,10 @@
                 <nav>
                 <ul class="nav">
                         <li><a href="{{ route('productos.index') }}">Productos</a></li>
-                        <li><a href="{{ route('reportes.index') }}">Reportes</a></li> <!-- Nueva opción -->
-                        <li><a href="{{ route('clientes.index') }}">Clientes</a> 
-                        <li><a href="{{ route('ventas.index') }}">Ventas</a> 
+                        <li><a href="{{ route('reportes.index') }}">Reportes</a></li>
+                        <li><a href="{{ route('clientes.index') }}">Clientes</a></li> 
+                        <li><a href="{{ route('ventas.index') }}">Ventas</a></li> 
+                        <li><a href="{{ route('dashboard') }}" class="menu-button">Ganancias</a></li>
                         <li><a href="{{ route('configuracion') }}">Configuración</a></li>
                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar sesión</a>
                         </li>  
@@ -36,7 +36,7 @@
         <!-- Contenido principal -->
         <main class="content">
             <div class="container">
-                @yield('content') <!-- Aquí se inyectará el contenido de cada página -->
+                @yield('content')
             </div>
         </main>
 

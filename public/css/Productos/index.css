@@ -16,13 +16,16 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del contenedor */
 }
 
+h1{
+    text-align: center; /* Centramos el título */
+}
+
 /* Título principal */
 h1.title {
     font-size: 2.5rem; /* Tamaño grande para el título */
     color: #333; /* Color oscuro para el título */
     text-align: center; /* Centramos el título */
     margin-bottom: 30px; /* Espaciado debajo del título */
-    text-transform: uppercase; /* Texto en mayúsculas */
 }
 
 /* Estilo para el formulario de búsqueda */
@@ -83,7 +86,7 @@ th, td {
 }
 
 th {
-    background-color: #4CAF50; /* Fondo verde para los encabezados */
+    background-color: #333; /* Fondo para los encabezados */
     color: white; /* Texto blanco */
     font-weight: bold; /* Texto en negrita para los encabezados */
 }
