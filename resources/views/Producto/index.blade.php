@@ -8,6 +8,15 @@
 @endsection
 
 @section('content')
+
+   <!-- Formulario de búsqueda -->
+   <form method="GET" action="{{ route('productos.index') }}" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="buscar" class="form-control" placeholder="Buscar producto..." value="{{ request('buscar') }}">
+            <button type="submit" class="btn btn-info">Buscar</button>
+        </div>
+    </form>
+
 <div class="index-container">
     <h1>Inventario de Productos</h1>
 
@@ -17,14 +26,6 @@
             {{ session('success') }}
         </div>
     @endif
-
-    <!-- Formulario de búsqueda -->
-    <form method="GET" action="{{ route('productos.index') }}" class="mb-3">
-        <div class="input-group">
-            <input type="text" name="buscar" class="form-control" placeholder="Buscar producto..." value="{{ request('buscar') }}">
-            <button type="submit" class="btn btn-info">Buscar</button>
-        </div>
-    </form>
 
     <!-- Acciones -->
     <div class="mb-3">
