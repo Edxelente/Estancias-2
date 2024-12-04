@@ -7,7 +7,7 @@
 
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-    @yield('css') <!-- Espacio para incluir estilos específicos de cada página -->
+    @yield('css')
 
 </head>
 <body>
@@ -23,7 +23,7 @@
                         <li><a href="{{ route('clientes.index') }}">Clientes</a></li> 
                         <li><a href="{{ route('ventas.index') }}">Ventas</a></li> 
                         <li><a href="{{ route('dashboard') }}" class="menu-button">Ganancias</a></li>
-                        <li><a href="{{ route('configuracion') }}">Configuración</a></li>
+                        <li><a href="{{ route('usuarios.index') }}">Usuarios</a></li>
                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar sesión</a>
                         </li>  
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

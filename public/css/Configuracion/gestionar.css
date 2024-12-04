@@ -1,0 +1,116 @@
+/* Estilo general para la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado principal */
+h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilo para el formulario */
+form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* Etiquetas del formulario */
+label {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Campos de entrada */
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Campo de entrada con error */
+input.is-invalid,
+select.is-invalid {
+    border-color: #e74c3c;
+    background-color: #f8d7da;
+}
+
+/* Estilo para los botones */
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Mensajes de éxito y error */
+.success-message,
+.error-message {
+    font-size: 1rem;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.success-message {
+    background-color: #28a745;
+    color: white;
+}
+
+.error-message {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* Contenedor para los roles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    form {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    select {
+        font-size: 0.9rem;
+    }
+
+    button[type="submit"] {
+        font-size: 0.9rem;
+    }
+}
