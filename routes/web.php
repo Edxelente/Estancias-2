@@ -5,8 +5,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\ReporteController;
-use App\Http\Controllers\ConfiguracionController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\UserController;
 
 // Redirección a login
 Route::get('/', function () {
@@ -39,11 +39,11 @@ Route::middleware('auth')->group(function () {
     // Rutas para clientes
     Route::resource('clientes', ClienteController::class);
 
-    // Configuración de roles
-    Route::get('/configuracion', [ConfiguracionController::class, 'index'])->name('configuracion');
-    Route::resource('roles', ConfiguracionController::class);
-    Route::put('roles/{user}', [ConfiguracionController::class, 'updateRole'])->name('roles.update');
-    Route::get('roles/{user}', [ConfiguracionController::class, 'showRoles'])->name('roles.show');
+     // Ruta para gestionar usuarios (ver todos los usuarios)
+     Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios.index');
+ 
+     // Ruta para eliminar un usuario
+     Route::delete('/usuarios/{user}', [UserController::class, 'destroy'])->name('usuarios.destroy');
 
     // Rutas para reportes
     Route::prefix('reportes')->group(function () {
