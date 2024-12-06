@@ -37,7 +37,7 @@ class EmpleadoController extends Controller
             'nombre' => $request->nombre,
             'email' => $request->email,
             'telefono' => $request->telefono,
-            'direccion' => $request->direccion,  // Aquí estamos añadiendo la dirección
+            'direccion' => $request->direccion, 
             'rol_trabajo_id' => $request->rol_trabajo_id,
             'salario' => $request->salario,
         ]);
@@ -48,7 +48,7 @@ class EmpleadoController extends Controller
     public function edit($id)
     {
         $empleado = Empleado::findOrFail($id);
-        $roles = RolTrabajo::all(); // Asegúrate de obtener los roles también
+        $roles = RolTrabajo::all();
         return view('empleados.edit', compact('empleado', 'roles'));
     }
 
