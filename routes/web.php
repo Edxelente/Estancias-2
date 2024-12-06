@@ -60,7 +60,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/comparacion-ventas', [ReporteController::class, 'comparacionVentas'])->name('reportes.comparacionVentas');
         Route::get('/total-gastado', [ReporteController::class, 'totalGastadoPorCliente'])->name('reportes.clientesGastado');
     });
-
+     // Ruta para gestion de empleados
     Route::resource('empleados', EmpleadoController::class);
 
 });
