@@ -15,7 +15,7 @@ form.mb-3 {
 }
 
 input.form-control {
-    width: auto; /* El campo de texto ocupa el 80% del ancho disponible */
+    width: auto;
     padding: 10px;
     font-size: 1rem; /* Tamaño de texto adecuado */
     border-radius: 5px; /* Bordes redondeados para el input */

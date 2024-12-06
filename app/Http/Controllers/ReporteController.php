@@ -59,14 +59,14 @@ class ReporteController extends Controller
     
             // Sugerir reabastecimiento si el stock es bajo
             if ($diasRestantes < 10) {
-                $producto->reabastecimiento = 'Sí'; // Marcar para reabastecer
+                $producto->reabastecimiento = 'Sí';
             } else {
                 $producto->reabastecimiento = 'No';
             }
     
             // Asignar el valor calculado para mostrar
-            $producto->ventas_diarias_promedio = $ventasPromedioDiarias;
-            $producto->dias_restantes = $diasRestantes;
+            $producto->ventas_diarias_promedio = round($ventasPromedioDiarias, 2);
+            $producto->dias_restantes = round($diasRestantes, 1);            
         }
     
         return view('reportes.reabastecimiento', compact('productos'));
