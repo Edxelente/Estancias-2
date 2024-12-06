@@ -51,14 +51,14 @@ class AuthController extends Controller
         $request->validate([
             'username' => ['required', 'string', 'unique:users,username'],
             'password' => ['required', 'confirmed', 'min:8'],
-            'roles' => 'required|exists:roles,id', // Validar que el rol exista en la tabla 'roles'
+            'roles' => 'required|exists:roles,id',
         ]);
     
         // Crear el nuevo usuario
         $user = User::create([
             'username' => $request->username,
             'password' => Hash::make($request->password),
-            'role_id' => $request->roles, // Guardar el rol directamente
+            'role_id' => $request->roles,
         ]);
     
         return redirect()->route('login')->with('success', 'Cuenta creada con éxito. Ahora puedes iniciar sesión.');
