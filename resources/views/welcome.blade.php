@@ -20,6 +20,7 @@
             <a href="{{ route('clientes.index') }}" class="menu-button">Clientes</a> 
             <a href="{{ route('ventas.index') }}" class="menu-button">Ventas</a>
             <a href="{{ route('dashboard') }}" class="menu-button">Ganancias</a>
+            <a href="{{ route('empleados.index') }}" class="menu-button">Empleados</a>
         </div>
     </div>
 </body>
