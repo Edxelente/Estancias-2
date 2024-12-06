@@ -23,6 +23,7 @@
                         <li><a href="{{ route('clientes.index') }}">Clientes</a></li> 
                         <li><a href="{{ route('ventas.index') }}">Ventas</a></li> 
                         <li><a href="{{ route('dashboard') }}" class="menu-button">Ganancias</a></li>
+                        <li><a href="{{ route('empleados.index') }}" class="menu-button">Empleados</a></li>
                         <li><a href="{{ route('usuarios.index') }}">Usuarios</a></li>
                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar sesión</a>
                         </li>  
@@ -36,6 +37,15 @@
         <!-- Contenido principal -->
         <main class="content">
             <div class="container">
+                @if ($errors->any())
+                    <div>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 @yield('content')
             </div>
         </main>
@@ -48,6 +58,6 @@
         </footer>
     </div>
 
-    @yield('js') <!-- Espacio para incluir scripts específicos de cada página -->
+    @yield('js')
 </body>
 </html>
