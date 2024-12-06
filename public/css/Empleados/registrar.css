@@ -1,0 +1,72 @@
+/* Estilos específicos para la página del formulario */
+.form-page {
+    padding: 20px;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+}
+h1{
+    text-align: center;
+}
+/* Contenedor principal del formulario */
+.form-page .form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de los grupos de formulario */
+.form-page .form-group {
+    margin-bottom: 15px;
+}
+
+.form-page .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.form-page .form-group input, .form-page .form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Botón */
+.form-page .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.form-page .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Contenedor de errores */
+.form-page .error-container {
+    margin-top: 20px;
+    background-color: #ffe5e5;
+    border-left: 5px solid #f44336;
+    padding: 10px;
+    border-radius: 5px;
+    color: #d8000c;
+}
+
+.form-page .error-container ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

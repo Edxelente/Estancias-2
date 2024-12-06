@@ -9,10 +9,10 @@ return new class extends Migration {
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('producto_id'); // Relación con productos
-            $table->unsignedBigInteger('cliente_id'); // Relación con clientes
+            $table->unsignedBigInteger('producto_id'); 
+            $table->unsignedBigInteger('cliente_id'); 
             $table->integer('cantidad'); 
-            $table->decimal('monto', 10, 2); // Monto total de la venta
+            $table->decimal('monto', 10, 2); 
             $table->timestamps();
             
             // Claves foráneas

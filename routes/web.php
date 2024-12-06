@@ -7,6 +7,8 @@ use App\Http\Controllers\VentaController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmpleadoController;
+
 
 // Redirección a login
 Route::get('/', function () {
@@ -32,6 +34,8 @@ Route::middleware('auth')->group(function () {
     // Rutas para productos e inventario
     Route::get('/inventario', [ProductoController::class, 'inventario'])->name('inventario');
     Route::resource('productos', ProductoController::class);
+    Route::post('/productos/deleteAll', [ProductoController::class, 'deleteAll'])->name('productos.deleteAll');
+
 
     // Rutas para ventas
     Route::resource('ventas', VentaController::class)->only(['index', 'create', 'store']);
@@ -56,4 +60,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/comparacion-ventas', [ReporteController::class, 'comparacionVentas'])->name('reportes.comparacionVentas');
         Route::get('/total-gastado', [ReporteController::class, 'totalGastadoPorCliente'])->name('reportes.clientesGastado');
     });
+
+    Route::resource('empleados', EmpleadoController::class);
+
 });

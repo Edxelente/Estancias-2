@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->unique(); // Asegúrate de que el nombre de usuario sea único
-            $table->string('password'); // Contraseña
-            $table->timestamps(); // Campos 'created_at' y 'updated_at'
+            $table->string('username')->unique();
+            $table->string('password');
+            $table->timestamps();
         });
     }
         
@@ -23,7 +23,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
         Schema::table('users', function (Blueprint $table) {
-            $table->dropTimestamps(); // Eliminar los campos 'created_at' y 'updated_at'
+            $table->dropTimestamps(); 
         });
     }
     

@@ -16,7 +16,7 @@ class ProductoController extends Controller
             $query->where('nombre', 'like', '%' . $request->buscar . '%');
         }
 
-        $productos = $query->paginate(10);
+        $productos = $query->paginate(15);
         return view('Producto.index', compact('productos'));
     }
 
@@ -91,4 +91,5 @@ class ProductoController extends Controller
 
         return view('Producto.inventario', compact('productos', 'totalProductos', 'productosBajoStock', 'valorInventario', 'ingresosEsperados'));
     }
+    
 }

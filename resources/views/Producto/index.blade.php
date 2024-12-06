@@ -63,5 +63,7 @@
             @endforeach
         </tbody>
     </table>
+     <!-- Paginación -->
+     {{ $productos->links('pagination::bootstrap-4', ['class' => 'custom-pagination']) }}
 </div>
 @endsection

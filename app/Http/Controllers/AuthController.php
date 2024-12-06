@@ -49,23 +49,21 @@ class AuthController extends Controller
     {
         // Validar los datos del formulario
         $request->validate([
-            'username' => ['required', 'string', 'unique:users,username'], // Nombre de usuario único
-            'password' => ['required', 'confirmed', 'min:8'], // Contraseña con confirmación y mínima de 8 caracteres
+            'username' => ['required', 'string', 'unique:users,username'],
+            'password' => ['required', 'confirmed', 'min:8'],
             'roles' => 'required|exists:roles,id', // Validar que el rol exista en la tabla 'roles'
         ]);
-
+    
         // Crear el nuevo usuario
         $user = User::create([
             'username' => $request->username,
-            'password' => Hash::make($request->password), // Encriptar la contraseña antes de guardarla
+            'password' => Hash::make($request->password),
+            'role_id' => $request->roles, // Guardar el rol directamente
         ]);
-
-        // Asignar el rol al usuario
-        $user->roles()->attach($request->roles);
-
+    
         return redirect()->route('login')->with('success', 'Cuenta creada con éxito. Ahora puedes iniciar sesión.');
     }
-
+    
     // Cerrar sesión
     public function logout(Request $request)
     {
@@ -73,6 +71,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/');
     }
 }

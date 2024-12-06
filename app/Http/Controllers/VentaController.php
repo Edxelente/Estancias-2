@@ -11,20 +11,24 @@ class VentaController extends Controller
 {
     public function index(Request $request)
     {
-        $ventas = Venta::with('producto', 'cliente'); // Relacionamos producto y cliente
-
+        $ventas = Venta::with('producto', 'cliente'); 
         // Búsqueda avanzada
         if ($request->has('buscar')) {
-            $ventas = $ventas->whereHas('producto', function($query) use ($request) {
-                $query->where('nombre', 'like', '%' . $request->buscar . '%');
-            })
-            ->orWhereHas('cliente', function($query) use ($request) {
-                $query->where('nombre', 'like', '%' . $request->buscar . '%');
-            })
-            ->orWhere('created_at', 'like', '%' . $request->buscar . '%');
+            $ventas = $ventas->where(function($query) use ($request) {
+                $query->whereHas('producto', function($query) use ($request) {
+                    $query->where('nombre', 'like', '%' . $request->buscar . '%');
+                })
+                ->orWhereHas('cliente', function($query) use ($request) {
+                    $query->where('nombre', 'like', '%' . $request->buscar . '%');
+                })
+                ->orWhere('created_at', 'like', '%' . $request->buscar . '%');
+            });
         }
-
-        $ventas = $ventas->paginate(10);
+        
+        
+        // Aquí la paginación debería aplicarse sobre el resultado filtrado
+        $ventas = $ventas->paginate(15);
+        
 
         // Obtener el total gastado por cada cliente
         $clientes = Cliente::withSum('ventas', 'total')->get(); // Suma de las ventas por cada cliente
