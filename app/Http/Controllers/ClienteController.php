@@ -61,5 +61,5 @@ public function update(Request $request, $id)
 
     return redirect()->route('clientes.index')->with('success', 'Cliente actualizado exitosamente.');
 }
-Z
+
 }
