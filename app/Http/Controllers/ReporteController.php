@@ -121,29 +121,44 @@ class ReporteController extends Controller
     }    
 
     public function comparacionVentas(Request $request)
-{
-    // Establecer valores predeterminados para ventas1 y ventas2
-    $ventas1 = 0;
-    $ventas2 = 0;
-
-    $periodo = $request->input('periodo'); // 'diario', 'semanal', 'mensual'
-
-    if ($periodo == 'diario') {
-        $ventas1 = Venta::whereDate('created_at', today())->sum('total');
-        $ventas2 = Venta::whereDate('created_at', today()->subDay())->sum('total');
-    } elseif ($periodo == 'semanal') {
-        $ventas1 = Venta::whereBetween('created_at', [now()->startOfWeek(), now()])->sum('total');
-        $ventas2 = Venta::whereBetween('created_at', [now()->startOfWeek()->subWeek(), now()->subWeek()])->sum('total');
-    } elseif ($periodo == 'mensual') {
-        $ventas1 = Venta::whereBetween('created_at', [now()->startOfMonth(), now()])->sum('total');
-        $ventas2 = Venta::whereBetween('created_at', [now()->startOfMonth()->subMonth(), now()->subMonth()])->sum('total');
+    {
+        $ventas1 = 0;
+        $ventas2 = 0;
+    
+        $periodo = $request->input('periodo'); // 'diario', 'semanal', 'mensual'
+    
+        if ($periodo == 'diario') {
+            // Ventas del día anterior
+            $ventasAnterior = Venta::whereDate('created_at', today()->subDay())->sum('total');
+            // Ventas del día actual
+            $ventasActual = Venta::whereDate('created_at', today())->sum('total');
+    
+            if ($ventasAnterior > 0) {
+                // Si hay ventas el día anterior, asignarlas a ventas1
+                $ventas1 = $ventasAnterior;
+                // Las ventas del día actual se asignan a ventas2
+                $ventas2 = $ventasActual;
+            } else {
+                // Si no hay ventas el día anterior, asignar las ventas del día actual a ventas1
+                $ventas1 = $ventasActual;
+                // Ventas2 se queda en 0 porque no hay comparación
+                $ventas2 = 0;
+            }
+        } elseif ($periodo == 'semanal') {
+            $ventas1 = Venta::whereBetween('created_at', [now()->startOfWeek(), now()])->sum('total');
+            $ventas2 = Venta::whereBetween('created_at', [now()->startOfWeek()->subWeek(), now()->subWeek()])->sum('total');
+        } elseif ($periodo == 'mensual') {
+            $ventas1 = Venta::whereBetween('created_at', [now()->startOfMonth(), now()])->sum('total');
+            $ventas2 = Venta::whereBetween('created_at', [now()->startOfMonth()->subMonth(), now()->subMonth()])->sum('total');
+        }
+    
+        // Calcular la diferencia de ventas
+        $diferencia = $ventas1 - $ventas2;
+    
+        return view('reportes.comparacion_ventas', compact('ventas1', 'ventas2', 'diferencia'));
     }
-
-    $diferencia = $ventas1 - $ventas2;
-
-    return view('reportes.comparacion_ventas', compact('ventas1', 'ventas2', 'diferencia'));
-}
-
+    
+ 
     public function totalGastadoPorCliente()
     {
         $clientes = Cliente::withSum('ventas', 'total')->get(); // Usar withSum para obtener el total gastado por cada cliente

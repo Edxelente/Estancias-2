@@ -84,7 +84,7 @@ h2 {
 a.btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #333;
     color: white;
     border-radius: 5px;
     text-decoration: none;
@@ -93,7 +93,7 @@ a.btn {
 }
 
 a.btn:hover {
-    background-color: #0056b3;
+    background-color: #484848;
 }
 
 @media (max-width: 768px) {
