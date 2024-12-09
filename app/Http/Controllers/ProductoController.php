@@ -21,21 +21,36 @@ class ProductoController extends Controller
     }
 
     public function dashboard()
-    {
-        $productos = Producto::all();
-    
-        $ganancias = $productos->sum(function ($producto) {
-            $costoUnitario = $producto->stock > 0 ? $producto->costo / $producto->stock : 0; // Evitar división por cero
-            $gananciaPorUnidad = $producto->precio - $costoUnitario;
-            return $gananciaPorUnidad * $producto->stock; // Ganancia total del producto
-        });
-    
-        $totalProductos = $productos->count();
-        $bajoStock = $productos->where('stock', '<', 10)->count();
-    
-        return view('Producto.dashboard', compact('totalProductos', 'bajoStock', 'ganancias'));
-    }
-    
+{
+    // Obtener todos los productos
+    $productos = Producto::all();
+
+    // Calcular las ganancias totales basadas en el stock disponible
+    $ganancias = $productos->sum(function ($producto) {
+        if ($producto->stock > 0) {
+            // Calcular el costo unitario del producto
+            $gananciaPorUnidad = $producto->stock * $producto->precio;
+            // Calcular la ganancia por unidad
+            // Multiplicar por el stock disponible para obtener la ganancia total por producto
+            return $gananciaPorUnidad;
+        }
+        return 0; // No hay ganancias si no hay stock
+    });
+
+    // Contar el total de productos
+    $totalProductos = $productos->count();
+
+    // Contar los productos con bajo stock (menos de 10 unidades)
+    $bajoStock = $productos->where('stock', '<', 10)->count();
+
+    // Retornar la vista con las variables calculadas
+    return view('Producto.dashboard', [
+        'totalProductos' => $totalProductos,
+        'bajoStock' => $bajoStock,
+        'ganancias' => $ganancias,
+    ]);
+}
+
 
     public function create()
     {
