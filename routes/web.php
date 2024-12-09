@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
 
     // Dashboard y vistas principales
     Route::get('/dashboard', [ProductoController::class, 'dashboard'])->name('dashboard');
-    Route::get('/welcome', fn() => view('welcome'))->name('welcome');
+    Route::get('/', fn() => view('welcome'))->name('welcome');
 
     // Rutas para productos e inventario
     Route::get('/inventario', [ProductoController::class, 'inventario'])->name('inventario');
